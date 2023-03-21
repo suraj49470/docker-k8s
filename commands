@@ -1,0 +1,2 @@
+bind mount 
+docker run -d -p 8080:80 -v "%cd%":/volapp -v /volapp/node_modules --rm --name volapp1 volapp:bindmount

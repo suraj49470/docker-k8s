@@ -1,0 +1,5 @@
+docker build -t mern-frontend .
+docker run --rm -d -p 3000:3000 -v ${pwd}:/frontend -v /frontend/node_modules --network mern --name frontend1 mern-frontend
+docker run -d -p 27017:27017 --name mongodb --network mern --rm mongo:latest
+docker build -t mern-backend .
+docker run -d --network mern -p 8000:80 -v ${pwd}:/backend -v /backend/node_modules --name backend1 mern-backend
