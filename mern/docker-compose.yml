@@ -13,6 +13,8 @@ services:
       - /frontend/node_modules
     ports:
       - 3000:3000
+    depends_on: 
+      - backend
   backend:
     build: ./backend
     volumes:
@@ -21,6 +23,8 @@ services:
       - /backend/node_modules
     ports:
       - 8000:80
+    depends_on:
+      - mongodb
 volumes:
   data:
   logs:
