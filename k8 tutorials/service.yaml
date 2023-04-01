@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: depnginx-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: depnginx
+  ports:
+  - port: 8080
+    targetPort: 80
+    nodePort: 30000
