@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-ingress-pods
+  template:
+    metadata:
+      labels:
+        app: nginx-ingress-pods
+    spec:
+      containers:
+      - name: nginx-ingress-container
+        image: nginx:stable-alpine3.17-slim
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 80
+        
+          
