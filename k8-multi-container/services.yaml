@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: multicontainer
+spec:
+  type: LoadBalancer
+  selector:
+    app: multicontainer
+  ports:
+    - port: 8080
+      targetPort: 80
+      name: api1
+    - port: 8088
+      targetPort: 80
+      name: api2
